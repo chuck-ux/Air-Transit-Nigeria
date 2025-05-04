@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirRefund - Get Your Flight Refund Fast</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --text: #333333;
+            --light-gray: #f5f5f5;
+            --gray: #e0e0e0;
+            --white: #ffffff;
+            --success: #4caf50;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo svg {
+            margin-right: 10px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: -40px auto 60px;
+            max-width: 700px;
+            padding: 30px;
+        }
+        
+        .form-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .file-upload {
+            border: 2px dashed var(--gray);
+            border-radius: 4px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary);
+        }
+        
+        .file-upload input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .upload-icon {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 24px;
+            text-align: center;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex-basis: 30%;
+            margin-bottom: 30px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            color: var(--primary);
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .success-message {
+            display: none;
+            background-color: var(--success);
+            color: var(--white);
+            text-align: center;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                flex-direction: column;
+            }
+            
+            .feature {
+                flex-basis: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13"></path>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                </svg>
+                AirRefund
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Get Your Flight Refund Hassle-Free</h1>
+            <p>Our streamlined process helps you claim the refund you deserve in just a few simple steps. No complicated forms, no waiting on hold.</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section class="form-section">
+            <h2 class="form-title">Start Your Refund Request</h2>
+            <form id="refundForm">
+                <div class="form-group">
+                    <label for="name">Full Name (as on ticket)</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pax">Passenger Number (PAX)</label>
+                    <input type="text" id="pax" name="pax" placeholder="Found on your e-ticket or booking confirmation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Upload Your Boarding Pass or Ticket</label>
+                    <div class="file-upload">
+                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>Drag and drop your file here or click to browse</p>
+                        <input type="file" id="ticket" name="ticket" accept="image/*" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Submit Refund Request</button>
+                
+                <div class="success-message" id="successMessage">
+                    Your refund request has been submitted successfully! We'll process your request and contact you shortly.
+                </div>
+            </form>
+        </section>
+        
+        <section class="features">
+            <div class="feature">
